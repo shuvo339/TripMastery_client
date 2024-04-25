@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import UseAuth from "../../hooks/UseAuth";
 
 const Register = () => {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const {createUser} = UseAuth();
   const handleRegister=e=>{
     e.preventDefault();
@@ -17,7 +17,9 @@ const Register = () => {
     const password= form.password.value;
     createUser(email,password)
     .then(res=>{
-        toast.success('User Created Successfully')
+        if(res.user){
+            toast.success('User Created Successfully')
+        }
     })
     .catch(error=>{
         toast.error(error.message.split(":")[1])
