@@ -45,7 +45,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <Link to='/login'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white mr-4">Login</button></Link>
-        <Link to='/login'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Register</button></Link>
+        <Link to='/register'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Register</button></Link>
         </div>
       </div>
   );
