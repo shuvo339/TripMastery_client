@@ -1,16 +1,36 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import UseAuth from "../../hooks/UseAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(true);
+  const {createUser} = UseAuth();
+  const handleRegister=e=>{
+    e.preventDefault();
+    const form = e.target;
+    const name= form.name.value;
+    const email= form.email.value;
+    const photo= form.photo.value;
+    const password= form.password.value;
+    createUser(email,password)
+    .then(res=>{
+        toast.success('User Created Successfully')
+    })
+    .catch(error=>{
+        toast.error(error.message.split(":")[1])
+     })
+
+    
+  }
   return (
     <div className="card shrink-0 w-3/4 md:w-1/2 mx-auto shadow-2xl bg-base-100 mb-2 mt-12">
       <h2 className="text-2xl md:text-4xl font-semibold text-center">
         Register
       </h2>
-      <form className="card-body space-y-2">
+      <form onSubmit={handleRegister} className="card-body space-y-2">
         <div className="form-control">
           <label className="label">
             <span className="label-text font-bold">Name</span>
