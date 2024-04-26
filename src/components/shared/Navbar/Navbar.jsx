@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../../../hooks/UseAuth";
 
 const Navbar = () => {
     const navLinks = <>
@@ -8,7 +9,12 @@ const Navbar = () => {
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/mylist">My List</NavLink></li>
    
     </>
-
+  const {logOut} = UseAuth();
+  const handleLogout=()=>{
+      logOut()
+      .then()
+      .catch()
+  }
   return (
     <div className="navbar bg-[#044553] px-12">
       <div className="navbar-start">
@@ -46,6 +52,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <Link to='/login'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white mr-4">Login</button></Link>
         <Link to='/register'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Register</button></Link>
+        <button onClick={handleLogout} className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Logout</button>
         </div>
       </div>
   );
