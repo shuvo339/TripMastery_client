@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import AddTouristSpot from './../pages/AddTouristSpot/AddTouristSpot';
 import UpdateSpot from './../pages/UpdateSpot/UpdateSpot';
+import MyList from './../pages/MyLIst/MyList';
 
  export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ import UpdateSpot from './../pages/UpdateSpot/UpdateSpot';
         {
           path: "/update",
           element: <UpdateSpot></UpdateSpot>,
+        },
+        {
+          path: "/mylist",
+          element: <MyList></MyList>,
         },
       ],
     },
