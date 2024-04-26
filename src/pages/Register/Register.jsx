@@ -1,32 +1,51 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import UseAuth from "../../hooks/UseAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {createUser} = UseAuth();
-  const handleRegister=e=>{
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { createUser, profileUpdate } = UseAuth();
+  const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name= form.name.value;
-    const email= form.email.value;
-    const photo= form.photo.value;
-    const password= form.password.value;
-    createUser(email,password)
-    .then(res=>{
-        if(res.user){
-            toast.success('User Created Successfully')
-        }
-    })
-    .catch(error=>{
-        toast.error(error.message.split(":")[1])
-     })
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
 
-    
-  }
+    if (password.length < 6) {
+      toast.error("Password should be at least 6 characters");
+      return;
+    }
+    if (!/(?=.*[A-Z])/.test(password)) {
+      toast.error("Password must have an uppercase letter");
+      return;
+    }
+    if (!/(?=.*[a-z])/.test(password)) {
+      toast.error("Password must have an lowercase letter");
+      return;
+    }
+    createUser(email, password)
+      .then((res) => {
+        if (res.user) {
+          toast.success("User Created Successfully");
+          profileUpdate(name, photo)
+            if(res.user){
+              setTimeout(()=>{
+                navigate(location?.state || "/")
+              }, 3000)
+            }
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message.split(":")[1]);
+      });
+  };
   return (
     <div className="card shrink-0 w-3/4 md:w-1/2 mx-auto shadow-2xl bg-base-100 mb-2 mt-12">
       <h2 className="text-2xl md:text-4xl font-semibold text-center">
@@ -72,7 +91,7 @@ const Register = () => {
           </label>
           <div className="relative">
             <input
-              type={showPassword? "text":"password"}
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Please create password"
               className="input input-bordered w-full"

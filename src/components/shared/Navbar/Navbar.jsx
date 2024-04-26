@@ -3,18 +3,19 @@ import UseAuth from "../../../hooks/UseAuth";
 
 const Navbar = () => {
     const navLinks = <>
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/">Home</NavLink></li>
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/allspot">All Tourists Spot</NavLink></li>
+    {/* <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/">Home</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/allspot">All Tourists Spot</NavLink></li> */}
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/aadspot">Add Tourists Spot</NavLink></li>
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/mylist">My List</NavLink></li>
-   
     </>
-  const {logOut} = UseAuth();
+  const {logOut, user} = UseAuth();
+    console.log(user)
   const handleLogout=()=>{
-      logOut()
+    logOut()
       .then()
       .catch()
   }
+
   return (
     <div className="navbar bg-[#044553] px-12">
       <div className="navbar-start">
@@ -50,9 +51,16 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white mr-4">Login</button></Link>
-        <Link to='/register'><button className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Register</button></Link>
-        <button onClick={handleLogout} className="btn bg-[#1e81b0] border-[#aec8ce] hover:bg-[#154c79]  text-white">Logout</button>
+         {
+          user? <div className="flex gap-3"> 
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img title={`${user?.displayName}`} alt="Tailwind CSS Navbar component" src={user?.photoURL || 'https://i.ibb.co/2ZQcYZy/user.jpg'} />
+              </div>
+        </div>
+              <button onClick={handleLogout} className="btn bg-[#7E5E60] text-white">Logout</button>
+          </div>:<Link to='/login'><button className="btn bg-[#7E5E60] text-white"> Login</button></Link>
+        }
         </div>
       </div>
   );
