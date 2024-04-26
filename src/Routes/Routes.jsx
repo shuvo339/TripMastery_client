@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Root from "../layouts/Root";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import AddTouristSpot from './../pages/AddTouristSpot/AddTouristSpot';
 
  export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ import Login from "../pages/Login/Login";
         {
           path: "/login",
           element: <Login></Login>,
+        },
+        {
+          path: "/addspot",
+          element: <AddTouristSpot></AddTouristSpot>,
         },
       ],
     },

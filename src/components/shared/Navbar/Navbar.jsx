@@ -3,14 +3,13 @@ import UseAuth from "../../../hooks/UseAuth";
 
 const Navbar = () => {
     const navLinks = <>
-    {/* <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/">Home</NavLink></li>
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/allspot">All Tourists Spot</NavLink></li> */}
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/aadspot">Add Tourists Spot</NavLink></li>
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/mylist">My List</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/">Home</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/allspot">All Tourists Spot</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/addspot">Add Tourists Spot</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/mylist">My List</NavLink></li>
     </>
   const {logOut, user} = UseAuth();
-    console.log(user)
-  const handleLogout=()=>{
+  const handleLogout=()=>{ 
     logOut()
       .then()
       .catch()
