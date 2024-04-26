@@ -5,6 +5,7 @@ import Root from "../layouts/Root";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import AddTouristSpot from './../pages/AddTouristSpot/AddTouristSpot';
+import UpdateSpot from './../pages/UpdateSpot/UpdateSpot';
 
  export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ import AddTouristSpot from './../pages/AddTouristSpot/AddTouristSpot';
         {
           path: "/addspot",
           element: <AddTouristSpot></AddTouristSpot>,
+        },
+        {
+          path: "/update",
+          element: <UpdateSpot></UpdateSpot>,
         },
       ],
     },

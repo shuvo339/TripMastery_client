@@ -11,12 +11,11 @@ const AddTouristSpot = () => {
         const travel_duration = form.travel_duration.value; 
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value; 
         const description = form.description.value; 
-        const product = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description};
-        console.log(product);
-        fetch('http://localhost:5000/coffees', {
+        const tourSpot = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description};
+        fetch('http://localhost:5000/tourspots', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
-            body: JSON.stringify(product)
+            body: JSON.stringify(tourSpot)
         })
         .then(res=>res.json())
         .then(data=>{
