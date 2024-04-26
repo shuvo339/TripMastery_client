@@ -1,7 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 
 const MyList = () => {
+    const tourSpots = useLoaderData()
     return (
-        <div className="grid grid-cols-3 gap-5 px-8 my-8">
+        <div className="px-8 my-8">
+            <h2 className="text-4xl font-semibold text-center pb-6">My Cart</h2>
+            <div className="grid grid-cols-3 gap-5">
             {
                 tourSpots.map(spot=>
                 <div key={spot._id} className="p-4 shadow-lg rounded-xl">
@@ -16,6 +20,7 @@ const MyList = () => {
                     </div>
                 </div>)
             }
+        </div>
         </div>
     );
 };

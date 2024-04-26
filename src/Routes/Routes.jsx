@@ -17,6 +17,7 @@ import MyList from './../pages/MyLIst/MyList';
         {
           path: "/",
           element: <Home></Home>,
+          loader: ()=>fetch('http://localhost:5000/tourspots')
         },
         {
           path: "/register",
@@ -37,6 +38,7 @@ import MyList from './../pages/MyLIst/MyList';
         {
           path: "/mylist",
           element: <MyList></MyList>,
+          loader: ()=>fetch('http://localhost:5000/tourspots')
         },
       ],
     },
