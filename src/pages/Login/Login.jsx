@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import UseAuth from "../../hooks/UseAuth";
 
@@ -9,7 +9,8 @@ import UseAuth from "../../hooks/UseAuth";
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const {signIn, googleLogin, githubLogin} = UseAuth();
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogin=e=>{
       e.preventDefault();
       const form= e.target;
@@ -17,7 +18,10 @@ const Login = () => {
       const password= form.password.value;
       signIn(email, password)
       .then(()=>{
-        toast.success("You have logged in successfully");
+        toast.success("You have logged in successfully")
+        setTimeout(()=>{
+          navigate(location?.state ? location.state : '/')
+        }, 3000)
       })
       .catch(error=>{
         toast.error(error.message.split(":")[1])
@@ -27,7 +31,10 @@ const Login = () => {
     const handleGoogleLogin=()=>{
       googleLogin()
       .then(()=>{
-        toast.success("You have logged in successfully");
+        toast.success("You have logged in successfully")
+        setTimeout(()=>{
+          navigate(location?.state ? location.state : '/')
+        }, 3000)
       })
       .catch(error=>{
         toast.error(error.message.split(":")[1])
@@ -36,7 +43,10 @@ const Login = () => {
     const handleGithubLogin=()=>{
       githubLogin()
       .then(()=>{
-        toast.success("You have logged in successfully");
+        toast.success("You have logged in successfully")
+        setTimeout(()=>{
+          navigate(location?.state ? location.state : '/')
+        }, 3000)
       })
       .catch(error=>{
         toast.error(error.message.split(":")[1])

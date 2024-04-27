@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import UseAuth from "../../hooks/UseAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-  const { createUser, profileUpdate } = UseAuth();
+  const { createUser, profileUpdate, logOut} = UseAuth();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -37,7 +36,8 @@ const Register = () => {
           profileUpdate(name, photo)
             if(res.user){
               setTimeout(()=>{
-                navigate(location?.state || "/")
+                logOut();
+                navigate("/login");
               }, 3000)
             }
         }
@@ -61,6 +61,7 @@ const Register = () => {
             name="name"
             placeholder="Please provide your name"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -72,6 +73,7 @@ const Register = () => {
             name="email"
             placeholder="Please provide your email"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -95,6 +97,7 @@ const Register = () => {
               name="password"
               placeholder="Please create password"
               className="input input-bordered w-full"
+              required
             />
             <span
               className="absolute top-1/3 right-3 text-xl"
