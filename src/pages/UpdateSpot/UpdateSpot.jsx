@@ -30,7 +30,7 @@ const UpdateSpot = () => {
         })
     }
     return (
-        <div>
+        <div className="mb-6">
         <div className="bg-[#429E9D] w-full md:w-3/5 lg:w-3/5 shadow-2xl mx-auto mt-8 p-6 md:p-10 rounded-md ">
             <h2 className="text-4xl font-bold mx-auto w-full text-center pb-6 bg-gradient-to-r from-stone-700 via-slate-500 to-stone-600 inline-block text-transparent bg-clip-text">Update Tourists Spot</h2>
             <form onSubmit={handleUpdateTouristsSpot} className="w-full">
