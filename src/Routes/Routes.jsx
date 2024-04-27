@@ -32,8 +32,9 @@ import MyList from './../pages/MyLIst/MyList';
           element: <AddTouristSpot></AddTouristSpot>,
         },
         {
-          path: "/update",
+          path: "/update/:id",
           element: <UpdateSpot></UpdateSpot>,
+          loader: ({params})=>fetch(`http://localhost:5000/tourspots/${params.id}`)
         },
         {
           path: "/mylist",

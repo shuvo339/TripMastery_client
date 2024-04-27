@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const MyList = () => {
     const LoadedTourSpots = useLoaderData();
@@ -30,7 +30,9 @@ const MyList = () => {
                     <h2>Travel Duration: {spot.travel_duration}</h2>
                     <h2>Budget: {spot.average_cost}</h2>
                     <div className="flex items-center justify-between my-4">
-                    
+                    <Link className="w-[47%]" to={`/update/${spot._id}`}><button type="button" className="btn w-full text-white font-medium bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-cyan-400 ...">
+                        UPDATE
+                        </button></Link>
                     <button onClick={()=>handleDelete(spot._id)} type="button" className="btn w-[47%] text-white font-medium bg-gradient-to-r from-red-400 to-pink-700 hover:from-pink-600 hover:to-amber-600 ...">
                         DELETE
                         </button>

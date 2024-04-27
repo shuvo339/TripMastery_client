@@ -1,5 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 
 const UpdateSpot = () => {
+    const spot = useLoaderData();
+    const {_id, spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description} = spot;
     const handleUpdateTouristsSpot=(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -14,17 +17,17 @@ const UpdateSpot = () => {
         const description = form.description.value; 
         const tourSpots = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description};
         console.log(tourSpots);
-        // fetch(`http://localhost:5000/coffees/${_id}`, {
-        //     method: 'PUT',
-        //     headers: {'content-type': 'application/json'},
-        //     body: JSON.stringify(product)
-        // })
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     if(data.modifiedCount){
-        //         alert('Product updated successfully')
-        //     }
-        // })
+        fetch(`http://localhost:5000/tourspots/${_id}`, {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(tourSpots)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount){
+                alert('Product updated successfully')
+            }
+        })
     }
     return (
         <div>
@@ -36,13 +39,13 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Tourists Spot Name</span>
                     </label>
-                    <input type="text" placeholder="tourists spot name" name="spot_name" className="input input-bordered" required />
+                    <input type="text" placeholder="tourists spot name" defaultValue={spot_name} name="spot_name" className="input input-bordered" required />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-medium text-lg">Country Name</span>
                     </label>
-                    <input type="text"  placeholder="country name" name="country_name" className="input input-bordered" required />
+                    <input type="text"  placeholder="country name" defaultValue={country_name} name="country_name" className="input input-bordered" required />
                 </div>
                </div>
 
@@ -51,13 +54,13 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Location</span>
                     </label>
-                    <input type="text" placeholder="location" name="location" className="input input-bordered" required />
+                    <input type="text" placeholder="location" defaultValue={location} name="location" className="input input-bordered" required />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-medium text-lg">Image URL</span>
                     </label>
-                    <input type="text"  placeholder="image url" name="image" className="input input-bordered" required />
+                    <input type="text"  placeholder="image url" defaultValue={image} name="image" className="input input-bordered" required />
                 </div>
                </div>
 
@@ -66,13 +69,13 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Average Cost</span>
                     </label>
-                    <input type="text" placeholder="average cost" name="average_cost" className="input input-bordered" required />
+                    <input type="text" placeholder="average cost" defaultValue={average_cost} name="average_cost" className="input input-bordered" required />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-medium text-lg">Seasonality</span>
                     </label>
-                    <input type="text"  placeholder="seasonality" name="seasonality" className="input input-bordered" required />
+                    <input type="text"  placeholder="seasonality" defaultValue={seasonality} name="seasonality" className="input input-bordered" required />
                 </div>
                </div>
 
@@ -81,13 +84,13 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Travel Duration</span>
                     </label>
-                    <input type="text" placeholder="travel duration" name="travel_duration" className="input input-bordered" required />
+                    <input type="text" placeholder="travel duration" defaultValue={travel_duration} name="travel_duration" className="input input-bordered" required />
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text font-medium text-lg">Total Visitor Per Year</span>
                     </label>
-                    <input type="text"  placeholder="total visitor per year" name="totalVisitorsPerYear" className="input input-bordered" required />
+                    <input type="text"  placeholder="total visitor per year" defaultValue={totalVisitorsPerYear} name="totalVisitorsPerYear" className="input input-bordered" required />
                 </div>
                </div>
 
@@ -96,7 +99,7 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Short Description</span>
                     </label>
-                    <input type="text"  placeholder="short description" name="description" className="input input-bordered" required />
+                    <input type="text"  placeholder="short description" defaultValue={description} name="description" className="input input-bordered" required />
                 </div>
                </div>
                 <div className="form-control mt-6">
