@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const TouristSpotCard = ({spot}) => {
-    const {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description} =spot;
+    const {_id, spot_name, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear} =spot;
     
     return (
         <div className="space-y-3 border p-4 rounded-md shadow-xl">
@@ -19,7 +20,7 @@ const TouristSpotCard = ({spot}) => {
                 <h2 className="text-lg font-medium">Total Visitors Per Year: {totalVisitorsPerYear}</h2>
                 <h2 className="text-lg font-medium">Seasonality: {seasonality}</h2>
                 </div>
-                <button className="btn text-lg bg-cyan-600 text-white">View Details</button>
+                <Link to={`/details/${_id}`}><button className="btn text-lg bg-cyan-600 text-white">View Details</button></Link>
             </div>
         </div>
     );
