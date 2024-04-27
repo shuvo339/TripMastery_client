@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../../../hooks/UseAuth";
+import logo from '../../../assets/logo.png'
 
 const Navbar = () => {
     const navLinks = <>
@@ -16,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-[#044553] px-12">
+    <div className="navbar bg-[#044553] px-3 md:px-12">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
@@ -42,7 +43,7 @@ const Navbar = () => {
              {navLinks}
           </ul>
         </div>
-        <Link to="/"><h2 className="text-2xl text-white font-bold">TripMastery</h2></Link>
+        <Link to="/"><img className="h-16" src={logo} alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-4">
