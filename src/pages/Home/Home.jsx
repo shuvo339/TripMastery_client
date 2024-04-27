@@ -10,7 +10,6 @@ const Home = () => {
     return (
         <div className="m-8">
             <div style={{backgroundImage: `url("https://i.ibb.co/QfHqCKr/add-bg.png")`}} className="w-full bg-cover bg-no-repeat min-h-screen"  data-aos="zoom-out" data-aos-duration="3000">
-                {/* <img src="https://i.ibb.co/QfHqCKr/add-bg.png" className="w-full h-[500px]" alt="" /> */}
             </div>
          <div className="grid grid-cols-2 gap-4">
             {
