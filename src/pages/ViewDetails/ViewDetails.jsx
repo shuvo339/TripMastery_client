@@ -5,7 +5,7 @@ const ViewDetails = () => {
     return (
         <div className="flex flex-col md:flex-row gap-8 my-12">
             <div className="flex-1">
-                <img className="rounded-md h-96 w-full" src={image} alt="" />
+                <img className="rounded-md h-full w-full" src={image} alt="" />
             </div>
             <div className="flex-1 space-y-4">
             <h2 className="text-3xl font-semibold">{spot_name}</h2>

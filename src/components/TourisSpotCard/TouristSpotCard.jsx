@@ -11,7 +11,7 @@ const TouristSpotCard = ({spot}) => {
                         <h2 className="bg-gradient-to-r from-cyan-500 to-cyan-800 text-white px-3 py-2 bg-clip-border border-dashed border-2 text-xl font-semibold -rotate-6">{spot_name}</h2>
                         <div className="-rotate-3">
                             <h2 className="text-center text-white text-lg font-semibold">{travel_duration}</h2>
-                            <h2 className="text-white font-semibold">{average_cost}</h2>
+                            <h2 className="text-white font-semibold">${average_cost}</h2>
                         </div>
                     </div>
             </div>
