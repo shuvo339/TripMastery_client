@@ -17,7 +17,7 @@ const UpdateSpot = () => {
         const description = form.description.value; 
         const tourSpots = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description};
         console.log(tourSpots);
-        fetch(`http://localhost:5000/tourspots/${_id}`, {
+        fetch(`https://trip-mastery-server.vercel.app/tourspots/${_id}`, {
             method: 'PUT',
             headers: {
             'content-type': 'application/json',

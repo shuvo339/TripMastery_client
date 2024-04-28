@@ -3,7 +3,8 @@ import Swal from 'sweetalert2'
 
 const AddTouristSpot = () => {
     const {user}=UseAuth();
-   
+    const name = user?.displayName;
+    const email = user?.email;
     const handleAddTouristsSpot=(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -16,10 +17,9 @@ const AddTouristSpot = () => {
         const travel_duration = form.travel_duration.value; 
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value; 
         const description = form.description.value; 
-        const name = user.displayName;
-        const email = user.email;
+        
         const tourSpot = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description, email, name};
-        fetch('http://localhost:5000/tourspots', {
+        fetch('https://trip-mastery-server.vercel.app/tourspots', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(tourSpot)

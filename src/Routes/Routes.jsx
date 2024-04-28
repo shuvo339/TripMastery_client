@@ -10,6 +10,7 @@ import MyList from './../pages/MyLIst/MyList';
 import AllSpots from './../pages/AllSpots/AllSpots';
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import PrivateRoute from './PrivateRoute';
+import CountrySpots from './../pages/CountrySpots/CountrySpots';
 
  export const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ import PrivateRoute from './PrivateRoute';
         {
           path: "/",
           element: <Home></Home>,
-          loader: ()=>fetch('http://localhost:5000/tourspots')
+          loader: ()=>fetch('https://trip-mastery-server.vercel.app/tourspots')
         },
         {
           path: "/register",
@@ -37,23 +38,26 @@ import PrivateRoute from './PrivateRoute';
         {
           path: "/update/:id",
           element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/tourspots/${params.id}`)
+          loader: ({params})=>fetch(`https://trip-mastery-server.vercel.app/tourspots/${params.id}`)
         },
         {
           path: "/details/:id",
           element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/tourspots/${params.id}`)
+          loader: ({params})=>fetch(`https://trip-mastery-server.vercel.app/tourspots/${params.id}`)
+        },
+        {
+          path: "/countryspots/:country_name",
+          element: <CountrySpots></CountrySpots>,
+          loader: ({params})=>fetch(`https://trip-mastery-server.vercel.app/tourspots/country_name/${params.country_name}`)
         },
         {
           path: "/mylist",
           element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-          loader: ()=>fetch('http://localhost:5000/tourspots')
-
         },
         {
           path: "/allspots",
           element: <AllSpots></AllSpots>,
-          loader: ()=>fetch('http://localhost:5000/tourspots')
+          loader: ()=>fetch('https://trip-mastery-server.vercel.app/tourspots')
         },
       ],
     },

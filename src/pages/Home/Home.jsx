@@ -11,13 +11,20 @@ import Countries from "../../components/Countries/Countries";
 AOS.init();
 const Home = () => {
   const tourSpots = useLoaderData();
+  const slicedSpots = ()=>{
+    if(tourSpots.length>6){
+      const newTourSpots=tourSpots.slice(0,6)
+      return newTourSpots;
+    }
+  }
+  const spots = slicedSpots();
   return (
     <div className="my-8">
       <Banner></Banner>
       <div className="my-20">
         <h2 className="text-4xl font-bold text-center pb-8">Popular Tourist Spots</h2>
         <div className="grid grid-cols-2 gap-4">
-          {tourSpots?.map((spot) => (
+          {spots?.map((spot) => (
             <TouristSpotCard key={spot._id} spot={spot}></TouristSpotCard>
           ))}
         </div>

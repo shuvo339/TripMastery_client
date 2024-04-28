@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Countries = () => {
     const [countries, setCountries] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/countries')
+        fetch('https://trip-mastery-server.vercel.app/countries')
         .then(res=>res.json())
         .then(data=>{
             setCountries(data)
@@ -20,7 +21,7 @@ const Countries = () => {
                 <div className="bg-cyan-500 h-16 flex justify-center items-center"><h2 className="text-2xl font-bold">{country.country_name}</h2></div>
                 <p className="opacity-90 text-justify py-3 flex-1">{country.description}</p>
                 <div className="my-2 flex justify-center items-center">
-                    <button className="btn w-1/2 mx-auto bg-cyan-600 text-white">VISIT SPOTS</button>
+                   <Link to={`countryspots/${country.country_name}`}> <button className="btn w-full mx-auto bg-cyan-600 text-white">VISIT SPOTS</button></Link>
                 </div>
             </div>)
         }
