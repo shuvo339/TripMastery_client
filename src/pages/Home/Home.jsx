@@ -23,7 +23,7 @@ const Home = () => {
       <Banner></Banner>
       <div className="my-20">
         <h2 className="text-4xl font-bold text-center pb-8">Popular Tourist Spots</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {spots?.map((spot) => (
             <TouristSpotCard key={spot._id} spot={spot}></TouristSpotCard>
           ))}

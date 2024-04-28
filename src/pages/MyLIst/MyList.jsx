@@ -44,20 +44,13 @@ const MyList = () => {
       });
         
      }
-    return (
-    //                 <Link className="w-[47%]" to={`/update/${spot._id}`}><button type="button" className="btn w-full text-white font-medium bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-cyan-400 ...">
-    //                     UPDATE
-    //                     </button></Link>
-    //                 <button onClick={()=>handleDelete(spot._id)} type="button" className="btn w-[47%] text-white font-medium bg-gradient-to-r from-red-400 to-pink-700 hover:from-pink-600 hover:to-amber-600 ...">
-    //                     DELETE
-    //                     </button>
- 
-    <div className="w-full md:w-3/4 my-8 min-h-screen shadow-xl mx-auto">
+    return ( 
+    <div className="w-full md:w-3/4 my-8 min-h-[400px] shadow-xl mx-auto">
     <div className="overflow-x-auto">
-    <div className="my-6 h-20 w-full bg-gradient-to-r from-green-600 to-cyan-500 flex justify-center items-center">
+    <div className="my-3 h-20 w-full bg-gradient-to-r from-green-600 to-cyan-500 flex justify-center items-center">
            <h2 className="text-3xl font-bold text-center text-white">My List</h2>
            </div>
-           <table className="table">
+           <table className="table table-xs md:table-md lg:table-lg">
                {/* head */}
                <thead>
                    <tr>
@@ -79,8 +72,8 @@ const MyList = () => {
                        <td>{spot.country_name}</td>
                        <td>{spot.travel_duration}</td>
                        <td>${spot.average_cost}</td>
-                       <td><Link to={`/update/${spot._id}`}><button className="btn">Update</button></Link></td>
-                       <td><button onClick={()=>handleDelete(spot._id)} className="btn">Delete</button></td>
+                       <td><Link to={`/update/${spot._id}`}><button className="btn btn-xs sm:btn-sm md:btn-md">Update</button></Link></td>
+                       <td><button onClick={()=>handleDelete(spot._id)} className="btn btn-xs sm:btn-sm md:btn-md">Delete</button></td>
                    </tr>)
           
    }

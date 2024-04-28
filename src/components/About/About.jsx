@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <div className="my-20"> 
+        <div className="my-16"> 
             <h2 className="text-4xl font-bold text-center pb-12">About Us</h2>
             <div className="flex flex-col md:flex-row gap-8">
                 <div>
@@ -20,7 +20,7 @@ const About = () => {
                     <p className="text-justify py-2"><span className="text-lg font-semibold">Sustainable Tourism: </span>At TripMastery, we are committed to promoting responsible and sustainable tourism practices that preserve the natural beauty and cultural heritage of Southeast Asia for future generations. We partner with local communities and eco-friendly initiatives to minimize our environmental footprint and support the livelihoods of indigenous peoples.</p>
                     </div>
                     <div className="row-span-2">
-                        <img className="w-full h-72 md:h-full lg:h-72 rounded-lg" src="https://i.ibb.co/92dLQ3W/about2.jpg" alt="" />
+                        <img className="w-full min-h-72 md:h-full lg:h-72 rounded-lg" src="https://i.ibb.co/92dLQ3W/about2.jpg" alt="" />
                     </div>
                     <div>
                     <p className="pt-3 text-justify"><span className="text-lg font-semibold">Join Us on the Journey: </span>Embark on an unforgettable voyage of discovery with TripMastery and unlock the secrets of the most captivating destinations of Southeast Asia. Whether you are a seasoned traveler or a first-time adventurer, let us be your guide to a world of endless possibilities.</p>

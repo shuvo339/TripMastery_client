@@ -13,7 +13,7 @@ const Countries = () => {
     return (
         <div className="my-16">
             <h2 className="text-4xl font-bold text-center pb-6">Countries</h2>
-            <div className="grid grid-cols-3 gap-5 my-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
         {
             countries.map(country=>
             <div key={country._id} className="p-4 shadow-lg rounded-xl flex flex-col">
