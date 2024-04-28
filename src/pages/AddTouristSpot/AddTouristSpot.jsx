@@ -1,4 +1,9 @@
+import UseAuth from "../../hooks/UseAuth";
+import Swal from 'sweetalert2'
+
 const AddTouristSpot = () => {
+    const {user}=UseAuth();
+   
     const handleAddTouristsSpot=(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -11,7 +16,9 @@ const AddTouristSpot = () => {
         const travel_duration = form.travel_duration.value; 
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value; 
         const description = form.description.value; 
-        const tourSpot = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description};
+        const name = user.displayName;
+        const email = user.email;
+        const tourSpot = {spot_name, country_name, location, image, average_cost, seasonality, travel_duration, totalVisitorsPerYear, description, email, name};
         fetch('http://localhost:5000/tourspots', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -20,7 +27,11 @@ const AddTouristSpot = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.insertedId){
-                alert('Product added successfully')
+                Swal.fire({
+                        title: "Added!",
+                        text: "Tourist spot has been added",
+                        icon: "success"
+                      });
             }
         })
     }

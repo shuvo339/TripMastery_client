@@ -1,15 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../../../hooks/UseAuth";
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.png';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
+  const {logOut, user} = UseAuth();
     const navLinks = <>
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/">Home</NavLink></li>
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/allspots">All Tourists Spot</NavLink></li>
     <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600 font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/addspot">Add Tourists Spot</NavLink></li>
-    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to="/mylist">My List</NavLink></li>
+    <li><NavLink className={({isActive})=>isActive? 'px-3 py-2 rounded-lg md:text-white border border-green-600  font-semibold bg-black bg-opacity-20 ':'border border-[#1e81b0] md:text-white px-3 py-2 rounded-xl bg-black bg-opacity-10'} to='/mylist'>My List</NavLink></li>
     </>
-  const {logOut, user} = UseAuth();
+
   const handleLogout=()=>{ 
     logOut()
       .then()
@@ -54,8 +57,9 @@ const Navbar = () => {
          {
           user? <div className="flex gap-3"> 
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img title={`${user?.displayName}`} alt="Tailwind CSS Navbar component" src={user?.photoURL || 'https://i.ibb.co/2ZQcYZy/user.jpg'} />
+              <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content={`${user?.displayName}`}>
+                <img alt="Tailwind CSS Navbar component" src={user?.photoURL || 'https://i.ibb.co/2ZQcYZy/user.jpg'} />
+              <Tooltip id="my-tooltip" />
               </div>
         </div>
               <button onClick={handleLogout} className="btn bg-[#7E5E60] text-white">Logout</button>
@@ -67,9 +71,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-//#1e81b0
-//#154c79
-//#063970
-//044553

@@ -19,7 +19,10 @@ const UpdateSpot = () => {
         console.log(tourSpots);
         fetch(`http://localhost:5000/tourspots/${_id}`, {
             method: 'PUT',
-            headers: {'content-type': 'application/json'},
+            headers: {
+            'content-type': 'application/json',
+            "Access-Control-Allow-Origin": "",
+        },
             body: JSON.stringify(tourSpots)
         })
         .then(res=>res.json())
