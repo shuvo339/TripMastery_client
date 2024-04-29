@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const UpdateSpot = () => {
     const spot = useLoaderData();
@@ -28,8 +29,13 @@ const UpdateSpot = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.modifiedCount){
-                alert('Product updated successfully')
-            }
+                Swal.fire({
+                    title: "Updated!",
+                    text: "Tourist spot has been updated",
+                    icon: "success"
+                  });
+        }
+        form.reset();
         })
     }
     return (
@@ -102,7 +108,7 @@ const UpdateSpot = () => {
                     <label className="label">
                         <span className="label-text font-medium text-lg">Short Description</span>
                     </label>
-                    <input type="text"  placeholder="short description" defaultValue={description} name="description" className="input input-bordered" required />
+                    <textarea type="text"  placeholder="short description" defaultValue={description} name="description" className="input input-bordered bg-opacity-70 h-20 text-area py-2" required />
                 </div>
                </div>
                 <div className="form-control mt-6">

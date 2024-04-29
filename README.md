@@ -10,7 +10,8 @@
 
 # npm packages used for the task
 * React tooltip
-* Swiper slider
+* React awesome reveal
+* React simple typewriter
 
 
 ## [Client Private Repo Link](https://github.com/programming-hero-web-course-4/B9A10-client-side-shuvo339)

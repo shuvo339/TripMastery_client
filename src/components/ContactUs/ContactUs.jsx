@@ -1,9 +1,11 @@
+import { Bounce } from "react-awesome-reveal";
 
 const ContactUs = () => {
     const handleMessage=e=>{
         e.preventDefault();
     }
     return (
+        <Bounce>
         <div className="flex flex-col md:flex-row gap-8 my-16 bg-blue-100 p-6 rounded-lg">
             <div className="md:w-1/2 w-full">
                 <h2 className="text-4xl font-bold pb-8 text-center">Contact Us</h2>
@@ -28,6 +30,7 @@ const ContactUs = () => {
                 <img className="w-full md:h-full rounded-lg" src="https://i.ibb.co/MDDrxkG/contact.jpg" alt="" />
             </div>
         </div>
+        </Bounce>
     );
 };
 

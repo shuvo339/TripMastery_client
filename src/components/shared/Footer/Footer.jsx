@@ -9,19 +9,21 @@ const Footer = () => {
             </aside>
             <nav>
                 <h6 className="footer-title text-white">Services</h6>
-                <a className="link link-hover mr-6 text-white">Design</a>
-                <a className="link link-hover mr-6 text-white">Marketing</a>
-                <a className="link link-hover mr-6 text-white">Advertisement</a>
+                <a className="link link-hover mr-6 text-white">Customer Service</a>
+                <a className="link link-hover mr-6 text-white">Destination Guides</a>
+                <a className="link link-hover mr-6 text-white">Travel Insurance</a>
             </nav>
             <nav>
                 <h6 className="footer-title text-white">Company</h6>
                 <a className="link link-hover mr-6 text-white">About us</a>
-                <a className="link link-hover mr-6 text-white">Contact</a>
+                <a className="link link-hover mr-6 text-white">Our Team</a>
+                <a className="link link-hover mr-6 text-white">Mission and Values</a>
             </nav>
             <nav>
                 <h6 className="footer-title text-white">Legal</h6>
                 <a className="link link-hover mr-6 text-white">Terms of use</a>
                 <a className="link link-hover mr-6 text-white">Privacy policy</a>
+                <a className="link link-hover mr-6 text-white">Cookie policy</a>
             </nav>
         
         </div>

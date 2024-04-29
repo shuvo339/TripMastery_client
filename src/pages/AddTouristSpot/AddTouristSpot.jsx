@@ -33,6 +33,7 @@ const AddTouristSpot = () => {
                         icon: "success"
                       });
             }
+            form.reset();
         })
     }
     return (
@@ -105,7 +106,7 @@ const AddTouristSpot = () => {
                         <label className="label">
                             <span className="label-text font-medium text-lg text-white">Short Description</span>
                         </label>
-                        <input type="text"  placeholder="short description" name="description" className="input input-bordered bg-opacity-70" required />
+                        <textarea type="text"  placeholder="short description" name="description" className="input input-bordered bg-opacity-70 h-20 text-area py-2" required />
                     </div>
                    </div>
                     <div className="form-control mt-6">

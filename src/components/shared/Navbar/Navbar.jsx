@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-[#044553] px-3 md:px-12">
+    <div className="navbar bg-[#044553] px-2 md:px-12">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
@@ -69,7 +69,7 @@ const Navbar = () => {
              {navLinks}
           </ul>
         </div>
-        <Link to="/"><img className="h-16" src={logo} alt="" /></Link>
+        <Link to="/"><img className="h-10 md:h-16" src={logo} alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-4">
@@ -78,7 +78,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
          {
-          user? <div className="flex gap-3"> 
+          user? <div className="flex gap-2 md:gap-3"> 
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content={`${user?.displayName}`}>
                 <img alt="Tailwind CSS Navbar component" src={user?.photoURL || 'https://i.ibb.co/2ZQcYZy/user.jpg'} />
