@@ -21,18 +21,21 @@ const Navbar = () => {
     }
 
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
  
-  const handleToggle = () => {
-       setTheme(theme=== 'dark'? 'light' : 'dark')
-          localStorage.setItem('theme', theme)
-        }
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("synthwave");
+    } else {
+      setTheme("light");
+    }
+  };
         
-      useEffect(() => {
-        document.querySelector('html').setAttribute('data-theme', theme)
-        // add custom data-theme attribute
-      }, [theme])
-      
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    const localTheme = localStorage.getItem('theme')
+    document.querySelector('html')?.setAttribute('data-theme', localTheme)
+}, [theme]);
 
 
    

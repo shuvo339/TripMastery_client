@@ -13,7 +13,7 @@ AOS.init();
 const Banner = () => {
     return (
         <div className='my-8'>
-        <Swiper navigation={true} pagination={{clickable:true}} modules={[Navigation, Autoplay, Pagination]} loop={true} autoplay={{delay:3000}}>
+        <Swiper className='rounded-xl' navigation={true} pagination={{clickable:true}} modules={[Navigation, Autoplay, Pagination]} loop={true} autoplay={{delay:3000}}>
           <SwiperSlide><div data-aos="zoom-out" data-aos-duration="2000"  style={{backgroundImage: `url("https://i.ibb.co/6PGx1vk/bali.jpg")`}} className='object-cover w-full bg-cover bg-no-repeat h-[500px] rounded-lg flex flex-col justify-center items-center gap-3'>
         
           <div className='bg-black bg-opacity-40 rounded-lg'>

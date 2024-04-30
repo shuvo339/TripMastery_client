@@ -6,7 +6,7 @@ const ContactUs = () => {
     }
     return (
         <Bounce>
-        <div className="flex flex-col md:flex-row gap-8 my-16 bg-blue-100 p-6 rounded-lg">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8 my-12 bg-blue-100 p-6 rounded-lg">
             <div className="md:w-1/2 w-full">
                 <h2 className="text-4xl font-bold pb-8 text-center">Contact Us</h2>
                 <form onSubmit={handleMessage} className="space-y-8">

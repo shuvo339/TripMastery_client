@@ -29,7 +29,7 @@ const Countries = () => {
                 "Vietnam",
                 "Cambodia",
               ]}
-              loop={5}
+              loop={0}
               cursor
               cursorStyle="_"
               typeSpeed={70}
