@@ -1,5 +1,4 @@
 # TripMastery
-# Category: Southeast Asia
 
 # Top features of the website
 * Extensive tourist spots around the Southest Asia zone
